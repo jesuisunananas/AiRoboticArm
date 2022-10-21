@@ -1,0 +1,11 @@
+Design/Build:
+What materials should we use? (plastic vs. metal)
+Where should we buy materials from?
+What type of robotic joints are used in arm?
+Stepper Motor or Servo Motor?
+Should we have different attachments?
+What microcontroller should we use?
+
+Code:
+What capabilities should we add to the arm?
+What branches of ML should we explore?
