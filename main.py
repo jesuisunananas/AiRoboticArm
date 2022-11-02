@@ -13,7 +13,6 @@ def findHandPos(capture, color : cv2.cvtColor):
 
 main = True
 while main:
-    time.sleep(0.5)
     ret, frame = cam.read()
     # flips orientation of frame horizontally
     frame = cv2.flip(frame, 1)
