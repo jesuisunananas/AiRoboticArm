@@ -1,6 +1,5 @@
 import cv2, time
 import mediapipe as mp
-import pyautogui
 
 cam = cv2.VideoCapture(0)
 mpHands = mp.solutions.hands
@@ -24,9 +23,9 @@ while main:
     if coords != None:
         # if hand is on the right half of the screen
         if coords[0].landmark[mpHands.HandLandmark.WRIST].x > 0.5:
-            pyautogui.write('hello')
+            print('hello')
         else:
-            pyautogui.write('goodbye')  
+            print('goodbye')  
 
     # if camera cannot be captured
     if not ret:
