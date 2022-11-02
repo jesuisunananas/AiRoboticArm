@@ -1,11 +1,24 @@
 Design/Build:
 What materials should we use? (plastic vs. metal)
+going to use plastic for now, metal will be too heavy
 Where should we buy materials from?
+?? home depot
 What type of robotic joints are used in arm?
+base will be revolving joint
+2 rotational joints as the other 2
 Stepper Motor or Servo Motor?
+Servo fs
 Should we have different attachments?
+Not now, will implement claw or sticky later
 What microcontroller should we use?
+arduino uno
 
 Code:
 What capabilities should we add to the arm?
+Arm will travel in 3 planes of motion in terms of camera
+<--->, up and down, in and out
+these will translate to
+rotation, lower joint, upper joint
+
 What branches of ML should we explore?
+Rn CV, later maybe NLP, do we need lalba?
