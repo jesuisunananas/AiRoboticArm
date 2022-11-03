@@ -20,7 +20,6 @@ while main:
     
     # only calls this when hand is on screen, will prioritize hand that has entered screen most recently
     if coords != None:
-        # if hand is on the right half of the screen
         xcoord = coords[0].landmark[mpHands.HandLandmark.WRIST].x
         ycoord = coords[0].landmark[mpHands.HandLandmark.WRIST].y
         pyautogui.moveTo(1920*xcoord, 1080*ycoord)
