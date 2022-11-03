@@ -16,7 +16,7 @@ while main:
     ret, frame = cam.read()
     # flips orientation of frame horizontally
     frame = cv2.flip(frame, 1)
-    coords = findHandPos(frame, cv2.COLOR_BGR2LAB)
+    coords = findHandPos(frame, cv2.COLOR_BGR2RGB)
     
     print(coords)
     # only calls this when hand is on screen, will prioritize hand that has entered screen most recently
