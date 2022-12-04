@@ -24,11 +24,11 @@ void setup() {
 
 void loop() {
     if (Serial.available() < 2) {
-        break;
+        return;
     }
     startbyte = Serial.read();
     if (startbyte != 255) {
-        break;
+        return;
     }
 
     for (int i = 0; i < 2; i++) {
