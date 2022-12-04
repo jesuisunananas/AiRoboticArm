@@ -7,9 +7,10 @@ def write_angle(ser : serial.Serial, angle : int, motor : int):
 
 def main():
     ser = serial.Serial('COM4', 9600, timeout=.1)
+    motor = 9
     while True:
         data = int(input("angle: "))
-        ser.write(bytes[data])
+        write_angle(ser, data, motor)
         
 if __name__ == "__main__":
     main()
