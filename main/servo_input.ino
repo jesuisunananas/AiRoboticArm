@@ -39,13 +39,13 @@ void loop() {
     angle = pythonData[1]; 
 
     switch (motor) {
-    case 9:
+      case 9:
         servo9.write(angle);
         break;
-        case 10:
+      case 10:
         servo10.write(angle);
         break;
-        case 11:
+      case 11:
         servo11.write(angle);
         break;
     }
