@@ -6,9 +6,9 @@ Servo servo11;
 int minPulseWidth = 600;
 int maxPulseWidth = 2400; 
 
-int userInput[3];
+int pythonData[3];
 int angle;
-int servo;
+int motor;
 int startbyte;
 
 void setup() {
@@ -23,28 +23,30 @@ void setup() {
 }
 
 void loop() {
-  if (Serial.available() > 2) {
-      startbyte = Serial.read();
+	if (Serial.available() < 2) {
+		break;
+	}
+  startbyte = Serial.read();
+  if (startbyte != 255) {
+	  break;
+  }
 
-      if (startbyte == 255) {
-        for (int i = 0; i < 2; i++) {
-          userInput[i] = Serial.read();
-        }
+  for (int i = 0; i < 2; i++) {
+    pythonData[i] = Serial.read();
+	}
 
-        servo = userInput[0];
-        angle = userInput[1]; 
+  motor = pythonData[0];
+  angle = pythonData[1]; 
 
-        switch (servo) {
-          case 9:
-            servo9.write(angle);
-            break;
-           case 10:
-            servo10.write(angle);
-            break;
-           case 11:
-            servo11.write(angle);
-            break;
-        }
-      }
-    }
+  switch (motor) {
+    case 9:
+      servo9.write(angle);
+      break;
+     case 10:
+      servo10.write(angle);
+      break;
+     case 11:
+      servo11.write(angle);
+      break;
+	}
 }
