@@ -1,6 +1,7 @@
-import cv2, time
+import cv2, serial, servocontroller
 import mediapipe as mp
 
+ser = serial.Serial('COM4', 9600, timeout=.1)
 cam = cv2.VideoCapture(0)
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
@@ -20,11 +21,20 @@ while main:
 
     # only calls this when hand is on screen, will prioritize hand that has entered screen most recently
     if coords != None:
+        wrist_loc = coords[0].landmark[mpHands.HandLandmark.MIDDLE_FINGER_MCP]
         # if hand is on the right half of the screen
-        if coords[0].landmark[mpHands.HandLandmark.WRIST].x > 0.5:
-            print('hello')
-        else:
-            print('goodbye')  
+        hand_x = 1 if wrist_loc.x > 1 else wrist_loc.x
+        angle = round(180 * hand_x)
+        servocontroller.write_angle(ser, angle, 9)
+
+        hand_y = 1 if wrist_loc.y > 1 else wrist_loc.y
+        angle = round(180 * hand_y)
+        servocontroller.write_angle(ser, angle, 10)
+
+        #hand_z = abs(wrist_loc.z)
+        #angle = round(180 * (10 * hand_z))
+        #print(f"rounded: {angle}, raw: {hand_z}")
+        #servocontroller.write_angle(ser, angle, 11)
 
     # if camera cannot be captured
     if not ret:
