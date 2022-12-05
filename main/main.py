@@ -21,7 +21,7 @@ def angle_change(ser : serial.Serial, hand_location : list):
     for key in normalized_location:
         angle = round(180 * key)
         motor = normalized_location[key]
-        servocontroller.write(ser, angle, motor)
+        servocontroller.write_angle(ser, angle, motor)
 
 def findHandPos(capture, color : cv2.cvtColor):
     imgColor = cv2.cvtColor(capture, color)
